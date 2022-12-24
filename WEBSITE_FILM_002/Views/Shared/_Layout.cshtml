@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="col-12 text-end">
+            <p>
+                <a href="#">Đăng nhập</a>
+                /
+                <a href="#">Đăng kí</a>
+            </p>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <div class="row">
+                        <div class="col-12 col-md-12  p-3">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">PHIM MỚI</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">PHIM LẺ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">HOẠT HÌNH</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-uppercase" href="#">Phim năm</a>
+                                    @*<ul class="nav-item">
+                                        <li class="navbar">
+                                            <ul class="navbar-nav">
+                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content1</a></li>
+                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
+                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="navbar">
+                                            <ul class="navbar-nav">
+                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content2</a></li>
+                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
+                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="navbar">
+                                            <ul class="navbar-nav">
+                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content3</a></li>
+                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
+                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>*@
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">CHIẾU RẠP</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">THUYẾT MINH</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/bootstrap.js")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

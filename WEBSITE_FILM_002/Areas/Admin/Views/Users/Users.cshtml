@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WEBSITE_FILM_002.Models.USERS>
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Areas/Admin/Views/Shared/_layout_Admin.cshtml";
+}
+
+<h2>Users</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FIRSTNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LASTNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BORN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GENDER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IMAGENAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USERSTATUS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ACCOUNTID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FIRSTNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LASTNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BORN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GENDER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IMAGENAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USERSTATUS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ACCOUNTID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.USERID }) |
+            @Html.ActionLink("Details", "DetailUser", new { id=item.USERID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.USERID })
+        </td>
+    </tr>
+}
+
+</table>

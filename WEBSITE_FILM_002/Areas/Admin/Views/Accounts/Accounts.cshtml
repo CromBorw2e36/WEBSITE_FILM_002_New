@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WEBSITE_FILM_002.Models.ACCOUNTS>
+
+@{
+    ViewBag.Title = "Accounts";
+    Layout = "~/Areas/Admin/Views/Shared/_layout_Admin.cshtml";
+}
+
+<p>username:@Session["AccountName"]</p>
+<p class="mt-4 mb-4">
+    <a href="/Admin/Accounts/CreateAccount" class="buttonCreate">Tạo tài khoản mới</a>
+</p>
+<table class="table">
+    <tr class="text-center">
+        <th>
+            @Html.DisplayNameFor(model => model.ACCOUNTNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATECREATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PERMISSON)
+        </th>
+        <th>
+            Ghi chú
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="text-center">
+            <td class="text-start">
+                @Html.DisplayFor(modelItem => item.ACCOUNTNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DATECREATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PERMISSON)
+            </td>
+            <td>
+                <a class="nav-link text-success" href="/Admin/Accounts/EditAccount/@(item.ACCOUNTID)" style="display: inline;">
+                    <i class="fas fa-user-edit"></i>
+                </a>
+                <a class="nav-link text-danger" href="/Admin/Accounts/DeleteAccount/@(item.ACCOUNTID)" style="display: inline;">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
