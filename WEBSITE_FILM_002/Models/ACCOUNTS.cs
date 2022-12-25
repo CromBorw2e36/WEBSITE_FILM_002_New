@@ -33,7 +33,7 @@ namespace WEBSITE_FILM_002.Models
         [DisplayName("Quyền tài khoản")]
         public int PERMISSON { get; set; }
 
-        [Column(TypeName = "text"), DisplayName("Liên hệ")]
+        [Column(TypeName = "text"), DisplayName("Liên hệ"), DataType(DataType.EmailAddress)]
         public string EMAIL { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

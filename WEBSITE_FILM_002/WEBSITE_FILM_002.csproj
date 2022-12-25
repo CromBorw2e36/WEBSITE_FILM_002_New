@@ -133,6 +133,7 @@
     <Compile Include="Areas\Admin\Controllers\IMAGESController.cs" />
     <Compile Include="Areas\Admin\Controllers\MainDashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VIDEOSController.cs" />
     <Compile Include="Controllers\FILMSController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -172,6 +173,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\Users\unknown.png" />
+    <Content Include="Scripts\Admin\Accounts.js" />
+    <Content Include="Scripts\Admin\images.js" />
+    <Content Include="Scripts\Admin\videos.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -217,6 +221,9 @@
     <Content Include="Areas\Admin\Views\MainDashboard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\FILMS\CreateFilm.cshtml" />
     <Content Include="Areas\Admin\Views\FILMS\EditFilm.cshtml" />
+    <Content Include="Areas\Admin\Views\IMAGES\Images.cshtml" />
+    <Content Include="Areas\Admin\Views\VIDEOS\Videos.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\DetailUser.cshtml" />
     <None Include="Scripts\jquery-3.6.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />
@@ -249,7 +256,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\IMAGES\" />
     <Folder Include="Images\FilmPoster\" />
     <Folder Include="Views\FILMS\" />
   </ItemGroup>

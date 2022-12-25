@@ -61,5 +61,25 @@ namespace WEBSITE_FILM_002.Areas.Admin.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public ActionResult DeleteUser(int id)
+        {
+            int Count = _conntext.USERS.Where(x=>x.USERID == id).Count(); 
+            if(Count > 0)
+            {
+                var User = _conntext.USERS.Where(x=>x.USERID.Equals(id)).FirstOrDefault();
+                var Account = _conntext.ACCOUNTS.Where(x=>x.ACCOUNTID.Equals(User.ACCOUNTID)).FirstOrDefault();
+                if (Account != null)
+                {
+                    _conntext.ACCOUNTS.Remove(Account);
+                    _conntext.USERS.Remove(User);
+                    _conntext.SaveChanges();
+                    return RedirectToAction("Users");
+                }
+            }
+            return RedirectToAction("Error", "MainDashboard");
+        }
+
     }
 }

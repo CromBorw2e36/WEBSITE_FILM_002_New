@@ -5,11 +5,6 @@
     Layout = "~/Areas/Admin/Views/Shared/_layout_Admin.cshtml";
 }
 
-<h2>Users</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -29,9 +24,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.USERSTATUS)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ACCOUNTID)
         </th>
         <th></th>
     </tr>
@@ -57,12 +49,9 @@
             @Html.DisplayFor(modelItem => item.USERSTATUS)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ACCOUNTID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.USERID }) |
-            @Html.ActionLink("Details", "DetailUser", new { id=item.USERID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.USERID })
+            <a href="./EditUser/@item.USERID" style="display:inline;" class="text-success pe-1"><i class="fas fa-edit"></i></a>
+            <a href="./DetailUser/@item.USERID" style="display:inline;" class="text-primary pe-1"><i class="fas fa-user"></i></a>
+            <a href="./DeleteUser/@item.USERID" style="display:inline;" class="text-danger "><i class="fas fa-trash-alt"></i></a>
         </td>
     </tr>
 }

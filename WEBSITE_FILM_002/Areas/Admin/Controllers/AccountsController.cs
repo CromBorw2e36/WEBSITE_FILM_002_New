@@ -53,14 +53,15 @@ namespace WEBSITE_FILM_002.Areas.Admin.Controllers
                     ACCOUNTPASS = request.ACCOUNTPASS,
                     DATECREATE = DateTime.Now,
                     PERMISSON = request.PERMISSON,
+                    EMAIL = request.EMAIL,
                 };
                 _context.ACCOUNTS.Add(NewAccount);
                 _context.SaveChanges();
                 decimal AccountID = _context.ACCOUNTS.Where( x => x.ACCOUNTNAME.Equals(request.ACCOUNTNAME)).Select( x=> x.ACCOUNTID).FirstOrDefault();
                 USERS NewUser = new USERS()
                 {
-                    FIRSTNAME = "unknown",
-                    LASTNAME = "unknown",
+                    FIRSTNAME = "Người",
+                    LASTNAME = "Dùng",
                     IMAGENAME = "unknown.png",
                     ACCOUNTID = AccountID,
                 };
