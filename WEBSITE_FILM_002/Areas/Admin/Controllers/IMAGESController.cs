@@ -1,17 +1,57 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Mvc;
+using WEBSITE_FILM_002.Models;
 
 namespace WEBSITE_FILM_002.Areas.Admin.Controllers
 {
     public class IMAGESController : Controller
     {
-        // GET: Admin/IMAGES
+        WEBSITE_FILM _context = new WEBSITE_FILM();
+
         public ActionResult Images()
         {
-            return View();
+            ViewBag.PagePositon = "IMAGES";
+            var Images = _context.IMAGES.ToList();
+            return View(Images);
         }
+
+        [HttpPost]
+        public JsonResult ReturnImages()
+        {
+            var Images = (from image in _context.IMAGES
+                          join user in _context.USERS on image.USERID equals user.USERID
+                          select new
+                          {
+                              IMAGEID = image.IMAGEID,
+                              IMAGENAME = image.IMAGENAME,
+                              DATECREATE = image.DATECREATE,
+                              USERNAME = (user.LASTNAME + " " + user.FIRSTNAME).ToString(),
+                          }).ToList();
+            var json = JsonConvert.SerializeObject(Images);
+            return Json(json, JsonRequestBehavior.DenyGet);
+        }
+
+        [HttpGet]
+        public ActionResult DeleteImage(int id)
+        {
+            var Image = _context.IMAGES.Where(x=>x.IMAGEID==id).FirstOrDefault();
+            if(Image!=null)
+            {
+                _context.IMAGES.Remove(Image);
+                _context.SaveChanges();
+                return RedirectToAction("Images");
+            }
+            else
+            {
+                return RedirectToAction("Error", "MainDashboard");
+            }
+        }
+
     }
 }
