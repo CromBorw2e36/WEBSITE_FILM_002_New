@@ -5,29 +5,28 @@
     Layout = "~/Areas/Admin/Views/Shared/_layout_Admin.cshtml";
 }
 
-<h2>QLFILM</h2>
 
 <p>
-    @Html.ActionLink("Phim mới", "CreateFilm")
+    @Html.ActionLink("Phim mới", "CreateFilm","" , new {@class = "buttonCreate mb-3"})
 </p>
 <table class="table">
-    <tr>
+    <tr class="text-center">
         <th>
             @Html.DisplayNameFor(model => model.FILMNAME)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.STATUS)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.FILMDIRECTOR)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.PRODUCTIONYEAR)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TIME)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.QUALITY)
         </th>
         <th>
@@ -38,13 +37,13 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CATEGORY)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.VIEWS)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.MANUFACTURING_COMPANY)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.MOVIEREVIEW)
         </th>
@@ -54,7 +53,7 @@
         <th>
             @Html.DisplayNameFor(model => model.FILM_STATUS)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.IMAGEID)
         </th>
         <th>
@@ -62,28 +61,28 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.USERID)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
+    <tr class="text-center">
+        <td class="text-start">
             @Html.DisplayFor(modelItem => item.FILMNAME)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.STATUS)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.FILMDIRECTOR)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.PRODUCTIONYEAR)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TIME)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.QUALITY)
         </td>
         <td>
@@ -94,23 +93,24 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CATEGORY)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.VIEWS)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.MANUFACTURING_COMPANY)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.MOVIEREVIEW)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DATECREATE)
+            @*@Html.DisplayFor(modelItem => item.DATECREATE)*@
+            @item.DATECREATE.ToString("dd/MM/yyyy")
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FILM_STATUS)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.IMAGEID)
         </td>
         <td>
@@ -118,10 +118,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.USERID)
-        </td>
+        </td>*@
         <td>
-            @Html.ActionLink("Edit", "EditFilm", new { id=item.FILMID }) |
-            @Html.ActionLink("Delete", "DeleteFilm", new { id=item.FILMID })
+            @*@Html.ActionLink("Edit", "EditFilm", new { id=item.FILMID }) |
+            @Html.ActionLink("Delete", "DeleteFilm", new { id=item.FILMID })*@
+            <a href="./EditFilm/@item.FILMID" class="text-primary" style="display:inline"><i class="fas fa-edit"></i></a>
+            <a href="./Delete/@item.FILMID" class="text-danger"><i class="fas fa-trash-alt"></i></a>
         </td>
     </tr>
 }
