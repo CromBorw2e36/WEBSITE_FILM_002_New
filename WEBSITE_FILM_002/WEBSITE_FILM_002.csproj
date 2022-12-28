@@ -172,6 +172,21 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\FilmPoster\318651327_569261868351532_1992545484505240726_n.jpg" />
+    <Content Include="Images\FilmPoster\am-luong-huy-diet.png" />
+    <Content Include="Images\FilmPoster\ARMAGEDDON-TIME.png" />
+    <Content Include="Images\FilmPoster\bang-chung-thep-phan-5.jpg" />
+    <Content Include="Images\FilmPoster\cuoc-gap-go-ngot-ngao.png" />
+    <Content Include="Images\FilmPoster\dai-chien-nam-canh-quan.png" />
+    <Content Include="Images\FilmPoster\dai-chien-voi-rong-lua.png" />
+    <Content Include="Images\FilmPoster\giai-cuu.png" />
+    <Content Include="Images\FilmPoster\hanh-trinh-vo-dinh.png" />
+    <Content Include="Images\FilmPoster\hung-thu-vo-hinh.png" />
+    <Content Include="Images\FilmPoster\nguoc-dong-thoi-gian-de-yeu-anh.png" />
+    <Content Include="Images\FilmPoster\phu_do_duyen.png" />
+    <Content Include="Images\FilmPoster\quy-nui-khong-lo.png" />
+    <Content Include="Images\FilmPoster\trai-tim-nguc-tu.png" />
+    <Content Include="Images\FilmPoster\ve-binh-giai-ngan-ha-ki-nghi-dat-biet.png" />
     <Content Include="Images\Users\unknown.png" />
     <Content Include="Scripts\Admin\Accounts.js" />
     <Content Include="Scripts\Admin\images.js" />
@@ -249,11 +264,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_FILMS\GetFilm.cshtml" />
+    <Content Include="Views\_FILMS\DetailFilm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Images\FilmPoster\" />
     <Folder Include="Scripts\User\" />
     <Folder Include="Views\Pages\" />
   </ItemGroup>

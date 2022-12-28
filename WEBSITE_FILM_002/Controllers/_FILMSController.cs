@@ -74,6 +74,18 @@ namespace WEBSITE_FILM_002.Controllers
             var Video_Link = _context.FILMS.Where(x=>x.FILMID.Equals(id)).Select(x=> new { address = x.VIDEOID}).SingleOrDefault();
             return Json(JsonConvert.SerializeObject(Video_Link), JsonRequestBehavior.DenyGet);
         }
+        public ActionResult GetFilm()
+        {
+            var _Flim = _context.FILMS.ToList();
+            ViewBag.message = _Flim.Count();
+            return View(_Flim);
+        }
+        public ActionResult DetailFilm(decimal id)
+        {
+            var res = _context.FILMS.Where(x => x.FILMID == id).FirstOrDefault();
+
+            return View(res);
+        }
 
     }
 }
