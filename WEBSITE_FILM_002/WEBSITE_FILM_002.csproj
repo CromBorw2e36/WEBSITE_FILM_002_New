@@ -135,6 +135,7 @@
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\VIDEOSController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
+    <Compile Include="Controllers\_CommentController.cs" />
     <Compile Include="Controllers\_FILMSController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -146,6 +147,7 @@
     <Compile Include="Models\USERS.cs" />
     <Compile Include="Models\VIDEOS.cs" />
     <Compile Include="Models\WEBSITE_FILM.cs" />
+    <Compile Include="Models\_ListComments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +170,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\ErrorAdmin.css" />
     <Content Include="Content\HomePage.css" />
+    <Content Include="Content\Detail_Film.css" />
     <Content Include="Content\_Login_AdminPage.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -237,6 +240,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\User\Detail_Film.js" />
     <Content Include="Videos\GiayNganTinDai.mp4" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -249,13 +253,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Pages\Detail_Film.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Images\FilmPoster\" />
-    <Folder Include="Scripts\User\" />
-    <Folder Include="Views\Pages\" />
+    <Folder Include="Views\_Comment\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
