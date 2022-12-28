@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -135,6 +135,7 @@
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\VIDEOSController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
+    <Compile Include="Controllers\_CommentController.cs" />
     <Compile Include="Controllers\_FILMSController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -146,6 +147,7 @@
     <Compile Include="Models\USERS.cs" />
     <Compile Include="Models\VIDEOS.cs" />
     <Compile Include="Models\WEBSITE_FILM.cs" />
+    <Compile Include="Models\_ListComments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -168,25 +170,11 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\ErrorAdmin.css" />
     <Content Include="Content\HomePage.css" />
+    <Content Include="Content\Detail_Film.css" />
     <Content Include="Content\_Login_AdminPage.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\FilmPoster\318651327_569261868351532_1992545484505240726_n.jpg" />
-    <Content Include="Images\FilmPoster\am-luong-huy-diet.png" />
-    <Content Include="Images\FilmPoster\ARMAGEDDON-TIME.png" />
-    <Content Include="Images\FilmPoster\bang-chung-thep-phan-5.jpg" />
-    <Content Include="Images\FilmPoster\cuoc-gap-go-ngot-ngao.png" />
-    <Content Include="Images\FilmPoster\dai-chien-nam-canh-quan.png" />
-    <Content Include="Images\FilmPoster\dai-chien-voi-rong-lua.png" />
-    <Content Include="Images\FilmPoster\giai-cuu.png" />
-    <Content Include="Images\FilmPoster\hanh-trinh-vo-dinh.png" />
-    <Content Include="Images\FilmPoster\hung-thu-vo-hinh.png" />
-    <Content Include="Images\FilmPoster\nguoc-dong-thoi-gian-de-yeu-anh.png" />
-    <Content Include="Images\FilmPoster\phu_do_duyen.png" />
-    <Content Include="Images\FilmPoster\quy-nui-khong-lo.png" />
-    <Content Include="Images\FilmPoster\trai-tim-nguc-tu.png" />
-    <Content Include="Images\FilmPoster\ve-binh-giai-ngan-ha-ki-nghi-dat-biet.png" />
     <Content Include="Images\Users\unknown.png" />
     <Content Include="Scripts\Admin\Accounts.js" />
     <Content Include="Scripts\Admin\images.js" />
@@ -252,6 +240,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\User\Detail_Film.js" />
     <Content Include="Videos\GiayNganTinDai.mp4" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -264,14 +253,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\_FILMS\GetFilm.cshtml" />
-    <Content Include="Views\_FILMS\DetailFilm.cshtml" />
+    <Content Include="Views\Pages\Detail_Film.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Scripts\User\" />
-    <Folder Include="Views\Pages\" />
+    <Folder Include="Images\FilmPoster\" />
+    <Folder Include="Views\_Comment\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
