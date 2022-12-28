@@ -82,6 +82,7 @@ namespace WEBSITE_FILM_002.Areas.Admin.Controllers
                         MOVIEREVIEW = 0,
                         DATECREATE = DateTime.Now,
                         FILM_STATUS = 0,
+                        CONTENT_FILM = request.CONTENT_FILM,
                         IMAGEID = _Filname_Image,
                         VIDEOID = _FileName_Video,
                         USERID = Convert.ToDecimal((int)Session["UserID"]),

@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Detail_Film.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
@@ -40,28 +41,28 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link text-uppercase" href="#">Phim năm</a>
                                     @*<ul class="nav-item">
-                                        <li class="navbar">
-                                            <ul class="navbar-nav">
-                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content1</a></li>
-                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
-                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="navbar">
-                                            <ul class="navbar-nav">
-                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content2</a></li>
-                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
-                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="navbar">
-                                            <ul class="navbar-nav">
-                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content3</a></li>
-                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
-                                                <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>*@
+                                            <li class="navbar">
+                                                <ul class="navbar-nav">
+                                                    <li class="nav-item"><a class="nav-link text-uppercase" href="#">content1</a></li>
+                                                    <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
+                                                    <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="navbar">
+                                                <ul class="navbar-nav">
+                                                    <li class="nav-item"><a class="nav-link text-uppercase" href="#">content2</a></li>
+                                                    <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
+                                                    <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="navbar">
+                                                <ul class="navbar-nav">
+                                                    <li class="nav-item"><a class="nav-link text-uppercase" href="#">content3</a></li>
+                                                    <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
+                                                    <li class="nav-item"><a class="nav-link text-uppercase" href="#">content</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>*@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">CHIẾU RẠP</a>
@@ -86,7 +87,8 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Scripts/bootstrap.js")
-
+    @Scripts.Render("~/Scripts/User/Detail_Film.js")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

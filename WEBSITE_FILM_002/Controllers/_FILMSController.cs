@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,7 +19,7 @@ namespace WEBSITE_FILM_002.Controllers
         [HttpPost]
         public JsonResult GET_FILMS()
         {
-            var GET_Films = _context.FILMS.Select(x => new
+            var GET_Films = _context.FILMS.Where(x=>x.FILM_STATUS == 0).Select(x => new
             {
                 filmid = x.FILMID,
                 filmname = x.FILMNAME,
@@ -35,8 +36,8 @@ namespace WEBSITE_FILM_002.Controllers
                 movie_review = x.MOVIEREVIEW,
                 content_film = x.CONTENT_FILM,
                 film_image = x.IMAGEID,
-            });
-            return Json(JsonConvert.SerializeObject(GET_Films), JsonRequestBehavior.DenyGet);
+            }).OrderByDescending(x=>x.filmid).ToList();
+            return Json(JsonConvert.SerializeObject(GET_Films), JsonRequestBehavior.AllowGet);
         }
 
 
@@ -45,7 +46,7 @@ namespace WEBSITE_FILM_002.Controllers
         public JsonResult GET_FILM(int id)
         {
             var Film = (from x in _context.FILMS
-                        where x.FILMID == (decimal)id
+                        where x.FILMID == (decimal)id && x.FILM_STATUS == 0
                         select new
                         {
                             film_id = id,
@@ -65,14 +66,98 @@ namespace WEBSITE_FILM_002.Controllers
                             film_image = x.IMAGEID,
                         }).SingleOrDefault();
             var ConverJson = JsonConvert.SerializeObject(Film);
-            return Json(ConverJson, JsonRequestBehavior.DenyGet);
+            return Json(ConverJson, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public JsonResult GET_Video_Film (int id)
+        public JsonResult GET_Video_Film(int id)
         {
-            var Video_Link = _context.FILMS.Where(x=>x.FILMID.Equals(id)).Select(x=> new { address = x.VIDEOID}).SingleOrDefault();
-            return Json(JsonConvert.SerializeObject(Video_Link), JsonRequestBehavior.DenyGet);
+            var Video_Link = _context.FILMS.Where(x => x.FILMID.Equals(id) && x.FILM_STATUS == 0).Select(x => new { address = x.VIDEOID }).SingleOrDefault();
+            if(Video_Link != null)
+            {
+                return Json(JsonConvert.SerializeObject(Video_Link), JsonRequestBehavior.AllowGet);
+            }
+            return Json(JsonRequestBehavior.DenyGet);
+        }
+
+        [HttpGet]
+        public JsonResult Get_TOP_Vieos()
+        {
+            var TopVideo = _context.FILMS.Select(x => new
+            {
+                filmid = x.FILMID,
+                filmname = x.FILMNAME,
+                status = x.STATUS,
+                filmdirector = x.FILMDIRECTOR,
+                productionyear = x.PRODUCTIONYEAR,
+                time = x.TIME,
+                quality = x.QUALITY,
+                resolution = x.RESOLUTION,
+                language = x.LANGUAGE,
+                category = x.CATEGORY,
+                views = x.VIEWS,
+                manufacturing_conpany = x.MANUFACTURING_COMPANY,
+                movie_review = x.MOVIEREVIEW,
+                content_film = x.CONTENT_FILM,
+                film_image = x.IMAGEID,
+            }).Take(10).OrderByDescending(x => x.filmid);
+            return Json(JsonConvert.SerializeObject(TopVideo), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult NewView(int id)
+        {
+            var _Film = _context.FILMS.Where(x => x.FILMID == id).SingleOrDefault();
+            if (_Film != null)
+            {
+                _Film.VIEWS = _Film.VIEWS + 1;
+                _context.Entry(_Film).State = EntityState.Modified;
+                _context.SaveChanges();
+            }
+            return Json(JsonRequestBehavior.DenyGet);
+        }
+
+        [HttpGet]
+        public JsonResult Rating(int id, int rating)
+        {
+            if (rating >= 1 && rating <= 5)
+            {
+                var _Film = _context.FILMS.Where(x => x.FILMID == id).SingleOrDefault();
+                if (_Film != null)
+                {
+                    _Film.MOVIEREVIEW = _Film.MOVIEREVIEW == 0 ? rating : (_Film.MOVIEREVIEW + rating) / 2;
+                    _context.Entry(_Film).State = EntityState.Modified;
+                    _context.SaveChanges();
+                }
+            }
+            return Json(JsonRequestBehavior.DenyGet);
+        }
+
+        //[HttpGet]
+        //public JsonResult get_film_()
+        //{
+        //    var TopVideo = (from f in _context.FILMS
+        //                    where f.CATEGORY.ToString() == "phim"
+        //                    select new
+        //                    {
+        //                        filmid = f.FILMID,
+        //                        filmname = f.FILMNAME,
+        //                    });
+        //    return Json(JsonConvert.SerializeObject(TopVideo),JsonRequestBehavior.AllowGet);
+        //}
+
+        [HttpPost]
+        public JsonResult Get_Film_Take_10()
+        {
+            var TopVideo = (from f in _context.FILMS
+                            where f.FILM_STATUS == 0
+                            select new
+                            {
+                                filmid = f.FILMID,
+                                filmname = f.FILMNAME,
+                                images = f.IMAGEID
+                            }).OrderByDescending(x=>x.filmid).Take(12);
+            return Json(JsonConvert.SerializeObject(TopVideo), JsonRequestBehavior.AllowGet);
         }
         public ActionResult GetFilm()
         {
