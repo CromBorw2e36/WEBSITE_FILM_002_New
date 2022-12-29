@@ -1,7 +1,9 @@
 ﻿using Microsoft.Ajax.Utilities;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.Mvc;
 using WEBSITE_FILM_002.Models;
@@ -11,12 +13,6 @@ namespace WEBSITE_FILM_002.Controllers
     public class PagesController : Controller
     {
         WEBSITE_FILM _context = new WEBSITE_FILM();
-
-        //Page index 
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         [HttpGet]
         public ActionResult Detail_Film(int id)
@@ -54,6 +50,50 @@ namespace WEBSITE_FILM_002.Controllers
 
             return View(_film) ;
         }
+
+        //trang chủ 
+
+        public ActionResult Index()
+        {
+            // danh sách phim mới
+            var _NewFilm = _context.FILMS.Where(x => x.FILM_STATUS == 0).OrderByDescending(x => x.FILMID).Take(12).ToList();
+            ViewBag.NewFilm = _NewFilm;
+
+            // danh sách phim theo chủ đề
+            var _ShowingFilm = _context.FILMS.Where(x => x.FILM_STATUS == 0 && x.STATUS == "Đang chiếu").OrderByDescending(x => x.FILMID).Take(12).ToList();
+            ViewBag.ShowingFilm = _ShowingFilm;
+
+            // danh sách phim theo ngôn ngữ
+            var _LanguageTQFilm = _context.FILMS.Where(x => x.FILM_STATUS == 0 && x.LANGUAGE == "Trung Quốc").OrderByDescending(x => x.FILMID).Take(12).ToList();
+            var _LanguageTVFilm = _context.FILMS.Where(x => x.FILM_STATUS == 0 && x.LANGUAGE == "Phụ đề Việt").OrderByDescending(x => x.FILMID).Take(12).ToList();
+            var _LanguageHQFilm = _context.FILMS.Where(x => x.FILM_STATUS == 0 && x.LANGUAGE == "Hàn Quốc").OrderByDescending(x => x.FILMID).Take(12).ToList();
+            
+            ViewBag.TQFilm = _LanguageTQFilm;
+            ViewBag.TVFilm = _LanguageTVFilm;
+            ViewBag.HQFilm = _LanguageHQFilm;
+            
+            // Xếp hạng phim
+
+            var _RankFilm = _context.FILMS.Where(x => x.FILM_STATUS == 0).OrderByDescending(x => x.VIEWS).ThenByDescending(x => x.FILMID).Take(3);
+            ViewBag.RankFilm = _RankFilm;
+
+
+            return View();
+        }
+
+        //test
+        public JsonResult GET_FILM()
+        {
+            var _Film = (from f in _context.FILMS
+                         where f.FILM_STATUS == 0 && f.LANGUAGE == "Phụ đề Việt"
+                         select new
+                         {
+                             FILMID = f.FILMID,
+                         }).OrderByDescending(x=>x.FILMID).Take(24).ToList();
+            return Json(JsonConvert.SerializeObject(_Film), JsonRequestBehavior.AllowGet);
+        }
+
+
 
     }
 }

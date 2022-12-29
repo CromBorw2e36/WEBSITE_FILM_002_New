@@ -8,20 +8,36 @@
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/Detail_Film.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="col-12 text-end">
+    <div class="site-menu">
+        <div class="col-12 text-end user-control" style="">
             <p>
-                <a href="#">Đăng nhập</a>
+                <span>
+                    <a href="#">
+                        Đăng nhập
+                    </a> 
+                </span>
                 /
-                <a href="#">Đăng kí</a>
+                <span>
+                    <a href="#">
+                        Đăng kí
+                    </a>
+                </span>
+            </p>
+            <p style="display:none">
+                <span>Xin chào, User name</span>
+                <span>
+                    <img src="#" alt="Alternate Text" />
+                </span>
             </p>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light m-0" style="">
             <div class="container">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" style="font-weight: 900;" href="#"><i class="fas fa-play h4-title-c"></i><span class="h4-title-c">Alphabet</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -90,5 +106,9 @@
     @Scripts.Render("~/Scripts/User/Detail_Film.js")
     @RenderSection("scripts", required: false)
 
+
+    <script>
+        AOS.init();
+    </script>   
 </body>
 </html>
