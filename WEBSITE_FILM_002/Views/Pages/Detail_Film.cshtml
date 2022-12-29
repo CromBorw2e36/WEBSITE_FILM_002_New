@@ -143,7 +143,7 @@
                     {
 
                         <div class="col-12 col-md-12 will_show">
-                            <a href="#" class="">
+                            <a href="./@item.FILMID" class="">
                                 <img src="~/Images/FilmPoster/@item.IMAGEID" alt="@item.IMAGEID" />
                                 <div>
                                     <p class="limit-text-3-line">@item.FILMNAME</p>
@@ -166,19 +166,19 @@
                     int i = 1;
                     foreach (var item in (IEnumerable<WEBSITE_FILM_002.Models.FILMS>)ViewBag.RankFilm)
                     {
-                        <div class="col-12 mt-3 pt-2 pb-1 views-rank-item">
-                            <div class="row">
-                                <div class="col-4 text-center">
-                                    <h5 class="">@i</h5>
-                                </div>
-                                <div class="col-8 views-rank-name">
-                                    <a href="#">
-                                        <p class="limit-text-2-line">@item.FILMNAME</p>
-                                        <p>Lượt xem: @item.VIEWS</p>
+                                <div class="col-12 mt-3 pt-2 pb-1 views-rank-item">
+                                    <a href="./@item.FILMID">
+                                        <div class="row">
+                                            <div class="col-4 text-center">
+                                                <h5 class="">@i</h5>
+                                            </div>
+                                            <div class="col-8 views-rank-name">
+                                                <p class="limit-text-2-line">@item.FILMNAME</p>
+                                                <p>Lượt xem: @item.VIEWS</p>
+                                            </div>
+                                        </div>
                                     </a>
                                 </div>
-                            </div>
-                        </div>
                         i++;
                     }
                 }

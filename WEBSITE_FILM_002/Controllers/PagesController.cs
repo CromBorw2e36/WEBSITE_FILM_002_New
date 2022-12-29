@@ -152,7 +152,16 @@ namespace WEBSITE_FILM_002.Controllers
             return View();
         }
 
+        public ActionResult Register()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult Register(FormCollection formCollection)
+        {
+            return View();
+        }
 
 
 

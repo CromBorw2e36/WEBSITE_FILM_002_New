@@ -175,6 +175,7 @@
     <Content Include="Content\index.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\PlayVideo.css" />
+    <Content Include="Content\userpage.css" />
     <Content Include="Content\_Login_AdminPage.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -262,6 +263,7 @@
     <Content Include="Views\Pages\PlayVideo.cshtml" />
     <Content Include="Views\Pages\Login.cshtml" />
     <Content Include="Views\_Users\UserPage.cshtml" />
+    <Content Include="Views\Pages\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

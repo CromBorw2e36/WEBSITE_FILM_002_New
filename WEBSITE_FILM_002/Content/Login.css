@@ -26,6 +26,14 @@ body {
     box-shadow: 0px 0px 24px #5C5696;
 }
 
+.screen-2 {
+    background: linear-gradient(90deg, #5D54A4, #7C78B8);
+    position: relative;
+    height: 600px;
+    width: 400px;
+    box-shadow: 0px 0px 24px #5C5696;
+}
+
 .screen__content {
     z-index: 1;
     position: relative;
@@ -90,8 +98,18 @@ body {
     padding-top: 156px;
 }
 
+.register {
+    width: 360px;
+    padding: 30px;
+}
+
 .login__field {
     padding: 20px 0px;
+    position: relative;
+}
+
+.login__field-2 {
+    padding: 10px 0px;
     position: relative;
 }
 
