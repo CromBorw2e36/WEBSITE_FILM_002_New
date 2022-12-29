@@ -23,7 +23,7 @@ namespace WEBSITE_FILM_002.Models
         [Required, DisplayName("Tên phim")]
         public string FILMNAME { get; set; }
 
-        [Column(TypeName = "ntext"), DisplayName("Trạng thái")]
+        [Column(TypeName = "nvarchar"), DisplayName("Trạng thái")]
         public string STATUS { get; set; }
 
         [Column(TypeName = "ntext"), DisplayName("Đạo diễn")]
@@ -43,11 +43,11 @@ namespace WEBSITE_FILM_002.Models
         [DisplayName("Độ phân giải")]
         public string RESOLUTION { get; set; }
 
-        [Column(TypeName = "ntext")]
+        [Column(TypeName = "nvarchar")]
         [DisplayName("Ngôn ngữ")]
         public string LANGUAGE { get; set; }
 
-        [Column(TypeName = "ntext")]
+        [Column(TypeName = "nvarchar")]
         [DisplayName("Thể Loại")]
         public string CATEGORY { get; set; }
 

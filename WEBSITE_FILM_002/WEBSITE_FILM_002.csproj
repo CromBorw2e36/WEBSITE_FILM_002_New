@@ -171,6 +171,7 @@
     <Content Include="Content\ErrorAdmin.css" />
     <Content Include="Content\HomePage.css" />
     <Content Include="Content\Detail_Film.css" />
+    <Content Include="Content\index.css" />
     <Content Include="Content\_Login_AdminPage.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -254,12 +255,12 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Pages\Detail_Film.cshtml" />
+    <Content Include="Views\Pages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Images\FilmPoster\" />
-    <Folder Include="Views\_Comment\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
