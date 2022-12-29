@@ -15,7 +15,7 @@
                 } else if (index == 8) {
                     _Dom += ` </div></div><div class="carousel-item"><div class="row">`
                 }
-                _Dom += `<div class="col-3">
+                _Dom += `<div class="col-6 col-md-6 col-lg-3 d-flex justify-content-center">
                             <div class=" card-hot-film" style="width: 8.7rem;">
                             <a href="./${value.filmid}">
                                     <img src="/Images/FilmPoster/${value.images}" class="" alt="${value.images}">

@@ -198,6 +198,15 @@ label.star:before {
     -webkit-box-orient: vertical;
 }
 
+.limit-text-1-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
 .limit-text-3-line {
     overflow: hidden;
     text-overflow: ellipsis;

@@ -81,6 +81,81 @@ namespace WEBSITE_FILM_002.Controllers
             return View();
         }
 
+        // Trang xem phim
+        public ActionResult PlayVideo(int id)
+        {
+            // Lấy Film ra chiếu
+            var _Film = _context.FILMS.Where(x=>x.FILMID == id && x.FILM_STATUS == 0).SingleOrDefault();
+
+            // Lấy danh sách phim mới
+
+            var _NewFilm = _context.FILMS.Where(x => x.FILM_STATUS == 0 && x.STATUS != null).OrderByDescending(x => (DateTime)x.PRODUCTIONYEAR).Take(8);
+
+            ViewBag.NewFilm = _NewFilm;
+
+            // Xếp hạng danh sách phim
+
+            var _RankFilm = _context.FILMS.Where(x => x.FILM_STATUS == 0).OrderByDescending(x => x.VIEWS).ThenByDescending(x => x.FILMID).Take(5);
+
+            ViewBag.RankFilm = _RankFilm;
+
+            //Lấy danh sách bình luận của phim
+
+            var _comment = (from cmt in _context.COMMENTS
+                            join user in _context.USERS on cmt.USERID equals user.USERID
+                            where cmt.COMMENT_STATUS == 0 && cmt.FILMID == id
+                            select new _ListComments
+                            {
+                                comment_content = cmt.COMMENT_CONTENT.ToString(),
+                                date = cmt.DATECREATE,
+                                userFirstName = user.FIRSTNAME,
+                                userLastName = user.LASTNAME,
+                                avatar = user.IMAGENAME,
+                            }).ToList();
+
+            ViewBag.Comment = _comment;
+
+            return View(_Film);
+        }
+
+        // Trang đăng nhập
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login (FormCollection formCollection)
+        {
+            string username = formCollection["ACCOUNTNAME"];
+            string userpass = formCollection["ACCOUNTPASS"];
+            var _account = _context.ACCOUNTS.Where(x=> x.ACCOUNTNAME == username).FirstOrDefault();
+            if (_account != null)
+            {
+                bool checkpass = _account.ACCOUNTPASS.Equals(userpass);
+                if(checkpass)
+                {
+                    var _user = _context.USERS.Where(x => x.ACCOUNTID == _account.ACCOUNTID).FirstOrDefault();
+                    if (_user != null)
+                    {
+
+                        Session["userid"] = _user.USERID;
+                        Session["avatar"] = _user.IMAGENAME;
+                        Session["lastname"] = _user.LASTNAME;
+                        Session["firstname"] = _user.FIRSTNAME;
+                        Session["isLogin"] = true;
+                        return RedirectToAction("UserPage", "_Users");
+                    }
+                }
+            }
+            return View();
+        }
+
+
+
+
+
         //test
         public JsonResult GET_FILM()
         {
