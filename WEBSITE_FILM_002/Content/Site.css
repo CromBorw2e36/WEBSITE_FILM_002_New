@@ -2,6 +2,7 @@
 @import url("AdminPage.css");
 @import url("Detail_Film.css");
 @import url("index.css");
+@import url("PlayVideo.css");
 
 /* Set padding to keep content from hitting the edges */
 body {
@@ -47,6 +48,7 @@ body {
     .site-menu nav a:hover {
         transform: translateY(-10px) scale(1.1);
     }
+
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
