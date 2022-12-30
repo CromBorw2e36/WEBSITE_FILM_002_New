@@ -197,7 +197,6 @@ namespace WEBSITE_FILM_002.Controllers
             return RedirectToAction("Index", "Pages");
         }
 
-
         //test
         public JsonResult GET_FILM()
         {
