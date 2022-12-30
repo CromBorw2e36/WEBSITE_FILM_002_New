@@ -50,6 +50,9 @@ body {
         transform: translateY(-10px) scale(1.1);
     }
 
+.font-weight-600{
+    font-weight: 600;
+}
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 

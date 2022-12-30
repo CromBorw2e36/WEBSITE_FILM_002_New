@@ -13,6 +13,7 @@
         //kiểm tra đăng nhập ở admin
         try
         {
+            // chưa đăng nhập thì về trang đang nhập
             if (!(bool)Session["isLogin"])
             {
                 Response.Redirect("/Admin/Admin/Login/");

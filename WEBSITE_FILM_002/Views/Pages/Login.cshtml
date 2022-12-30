@@ -17,6 +17,27 @@
 
     <link href="~/Content/Login.css" rel="stylesheet" />
 
+    @{
+        try
+        {
+            if (Session["isLogin"] != null)
+            {
+                if ((bool)Session["isLogin"])
+                {
+                    Response.Redirect("/_Users/UserPage");
+                }
+            }
+            else
+            {
+                Session["isLogin"] = false;
+            }
+        }
+        catch (Exception)
+        {
+            Session["isLogin"] = false;
+        }
+    }
+
 </head>
 
 <body>

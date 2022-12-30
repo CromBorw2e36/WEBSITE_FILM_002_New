@@ -11,23 +11,68 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    @{
+        bool checkIsLogin()
+        {
+            if (Session["isLogin"] == null)
+            {
+                Session["isLogin"] = false;
+                return false;
+            }
+            else
+            {
+                if ((bool)Session["isLogin"])
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        if (Session["isLogin"] == null)
+        {
+            Session["isLogin"] = false;
+        }
+
+
+}
 </head>
 <body>
     <div class="site-menu">
         <div class="col-12 text-end user-control" style="">
-            <p>
-                <span>
-                    <a href="/Pages/Login">
-                        Đăng nhập
-                    </a>
-                </span>
-                /
-                <span>
-                    <a href="#">
-                        Đăng kí
-                    </a>
-                </span>
-            </p>
+            
+            @{
+                if ((bool)checkIsLogin())
+                {
+                        <div style="margin-right: 2rem; font-size: .8rem; font-weight: 500;">
+                            <a href="/_Users/UserPage">
+                                <span>Xin chào, @Session["FirstName"] @Session["LastName"]</span>
+                                <img src="~/Images/Users/@Session["UserAvatar"]" alt="Alternate Text" style="height: 2rem; width: 2rem; border-radius: 100%; margin: 4px;" />
+                            </a>
+                            , <a href="/Pages/Logout">Đăng xuất</a>
+                        </div> 
+                }
+                else
+                {
+                    <p>
+                        <span>
+                            <a href="/Pages/Login">
+                                Đăng nhập
+                            </a>
+                        </span>
+                        /
+                        <span>
+                            <a href="#">
+                                Đăng kí
+                            </a>
+                        </span>
+                    </p>
+                }
+
+            }
             <p style="display:none">
                 <span>Xin chào, User name</span>
                 <span>
@@ -37,7 +82,7 @@
         </div>
         <nav class="navbar navbar-expand-lg navbar-light m-0" style="">
             <div class="container">
-                <a class="navbar-brand" style="font-weight: 900;" href="#"><i class="fas fa-play h4-title-c"></i><span class="h4-title-c">Alphabet</span></a>
+                <a class="navbar-brand" style="font-weight: 900;" href="/"><i class="fas fa-play h4-title-c"></i><span class="h4-title-c">Alphabet</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
