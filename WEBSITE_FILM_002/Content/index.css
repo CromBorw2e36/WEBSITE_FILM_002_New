@@ -9,7 +9,7 @@
 
 .h4-title-c {
     text-transform: uppercase;
-    color: #FF597B;
+    color: #fff;
     padding: 5px;
     margin-bottom: 0;
     margin-top: 0;
@@ -17,7 +17,7 @@
 }
 
     .h4-title-c:hover {
-        color: #579BB1;
+        color: #FF597B;
         transform: translate(-10px) scale(1.1);
     }
 

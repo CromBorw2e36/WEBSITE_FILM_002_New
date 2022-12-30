@@ -3,7 +3,9 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using WEBSITE_FILM_002.Models;
@@ -122,6 +124,14 @@ namespace WEBSITE_FILM_002.Controllers
 
         public ActionResult Login()
         {
+            if (Session["isLogin"] != null)
+            {
+                if ((bool)Session["isLogin"])
+                {
+                    return RedirectToAction("UserPage", "_Users");
+                }
+            }
+
             return View();
         }
 
@@ -140,11 +150,15 @@ namespace WEBSITE_FILM_002.Controllers
                     if (_user != null)
                     {
 
-                        Session["userid"] = _user.USERID;
-                        Session["avatar"] = _user.IMAGENAME;
-                        Session["lastname"] = _user.LASTNAME;
-                        Session["firstname"] = _user.FIRSTNAME;
                         Session["isLogin"] = true;
+                        Session["AccountID"] = _account.ACCOUNTID;
+                        Session["AccountName"] = username;
+                        Session["Permisson"] = _account.PERMISSON;
+                        Session["UserID"] = _user.USERID;
+                        Session["FirstName"] = _user.FIRSTNAME;
+                        Session["LastName"] = _user.LASTNAME;
+                        Session["UserAvatar"] = _user.IMAGENAME;
+
                         return RedirectToAction("UserPage", "_Users");
                     }
                 }
@@ -154,6 +168,11 @@ namespace WEBSITE_FILM_002.Controllers
 
         public ActionResult Register()
         {
+            if ((bool)Session["isLogin"])
+            {
+                return RedirectToAction("UserPage", "_Users");
+            }
+
             return View();
         }
 
@@ -176,8 +195,5 @@ namespace WEBSITE_FILM_002.Controllers
                          }).OrderByDescending(x=>x.FILMID).Take(24).ToList();
             return Json(JsonConvert.SerializeObject(_Film), JsonRequestBehavior.AllowGet);
         }
-
-
-
     }
 }
