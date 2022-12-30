@@ -159,6 +159,18 @@ namespace WEBSITE_FILM_002.Controllers
                             }).OrderByDescending(x=>x.filmid).Take(12);
             return Json(JsonConvert.SerializeObject(TopVideo), JsonRequestBehavior.AllowGet);
         }
+        public ActionResult GetFilm()
+        {
+            var _Flim = _context.FILMS.ToList();
+            ViewBag.message = _Flim.Count();
+            return View(_Flim);
+        }
+        public ActionResult DetailFilm(decimal id)
+        {
+            var res = _context.FILMS.Where(x => x.FILMID == id).FirstOrDefault();
+
+            return View(res);
+        }
 
     }
 }
