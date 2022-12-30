@@ -82,12 +82,7 @@
                 </button>
 
                 <!-- Brand -->
-                <a class="navbar-brand" href="#">
-                    <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-                         height="25"
-                         alt="MDB Logo"
-                         loading="lazy" />
-                </a>
+                <a class="navbar-brand" style="font-weight: 900;" href="/"><i class="fas fa-play h4-title-c" style="color:darkblue;"></i><span class="h4-title-c" style="color:darkblue;">Alphabet</span></a>
                 <!-- Search form -->
                 <form class="d-none d-md-flex input-group w-auto my-auto">
                     <input autocomplete="off"
@@ -215,9 +210,8 @@
                             <a class="dropdown-toggle hidden-arrow " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="~/Images/Users/@((string)Session["UserAvatar"])"
                                      class="rounded-circle"
-                                     height="22"
                                      alt="Avatar"
-                                     loading="lazy" />
+                                     loading="lazy" style="height: 2rem;width: 2rem; border-radius:50%; object-fit: fill;" />
                                 @Session["LastName"] @Session["FirstName"]
                             </a>
 
@@ -243,7 +237,7 @@
     <!--Main Navigation-->
     <!--Main layout-->
     <main style="margin-top: 58px;">
-        <div class="container pt-4">
+        <div class="container pt-4" style="background-color: #DBE2EF; padding-bottom: 5rem;">
             @RenderBody()
         </div>
     </main>

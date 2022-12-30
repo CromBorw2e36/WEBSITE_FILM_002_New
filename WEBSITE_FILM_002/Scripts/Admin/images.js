@@ -9,9 +9,9 @@
             $.each(listImages, (i, e) => {
                 let item = `<tr>
                     <td>${e["IMAGENAME"]}</td>
-                    <td>${e["DATECREATE"]}</td>
-                    <td>${e["USERNAME"]}</td>
-                    <td><a href="./DeleteImage/${e["IMAGEID"]}" class="text-danger"><i class="fas fa-trash"></i></a></td>
+                    <td  class="text-center">${e["DATECREATE"]}</td>
+                    <td  class="text-center">${e["USERNAME"]}</td>
+                    <td  class="text-center"><a href="./DeleteImage/${e["IMAGEID"]}" class="text-danger"><i class="fas fa-trash"></i></a></td>
                 </tr>`
                 DOM_ += item;
             })

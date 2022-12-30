@@ -64,3 +64,24 @@ button Create Account */
     .buttonCreate:active {
         transform: translateY(-1px);
     }
+
+/*Định dạng form input trang admin*/
+
+.form_input_admin {
+    background-color: white;
+    border-radius: 10px; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: auto;
+    margin-bottom: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+tbody,
+.table-2{
+    padding: 10px;
+    display: block;
+    height: 30rem;
+    overflow: hidden;
+    overflow-y: scroll;
+}

@@ -5,17 +5,21 @@
     Layout = "~/Areas/Admin/Views/Shared/_layout_Admin.cshtml";
 }
 
-<h3>Thêm phim mới</h3>
+<div>
+    <a href="/Admin/Films/QLFILM" ><button class="button_save savebutton">Trở về</button></a>
+    <h3 style="display:inline; margin-left: 5px;">Thêm phim mới</h3>
 
-<div class="container p-3">
+</div>
+
+<div class="container form_input_admin">
     @using (Html.BeginForm(actionName: "CreateFilm", controllerName: "FILMS", method: FormMethod.Post, new { enctype = "multipart/form-data"}))
     {
         @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="row">
-            <div class="form-group row mb-3  col-12 col-md-6 ">
+        <div class="row d-flex justify-content-center">
+            <div class="form-group row mb-3  col-12 col-md-6 d-flex justify-content-center">
                 @Html.LabelFor(model => model.FILMNAME, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-md-7">
                     @Html.EditorFor(model => model.FILMNAME, new { htmlAttributes = new { @class = "form-control" } })
@@ -23,7 +27,7 @@
                 </div>
             </div>
 
-            <div class="form-group row mb-3  col-12 col-md-6">
+            <div class="form-group row mb-3  col-12 col-md-6 d-flex justify-content-center">
                 @Html.LabelFor(model => model.STATUS, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-12  col-md-7">
                     <select class="form-select" id="STATUS" name="STATUS">
@@ -35,8 +39,8 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group row mb-3  col-12 col-md-6">
+        <div class="row d-flex justify-content-center">
+            <div class="form-group row mb-3  col-12 col-md-6 d-flex justify-content-center">
                 @Html.LabelFor(model => model.FILMDIRECTOR, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-12  col-md-7">
                     @Html.EditorFor(model => model.FILMDIRECTOR, new { htmlAttributes = new { @class = "form-control" } })
@@ -44,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="form-group row mb-3  col-12 col-md-6">
+            <div class="form-group row mb-3  col-12 col-md-6 d-flex justify-content-center">
                 @Html.LabelFor(model => model.PRODUCTIONYEAR, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-12  col-md-7">
                     <input type="date" class="form-control" id="PRODUCTIONYEAR" name="PRODUCTIONYEAR" value="@DateTime.Now.ToString("yyyy-mm-dd")" min="1970-01-01" max="@DateTime.Now.ToString("yyyy-mm-dd")" required>
@@ -54,8 +58,8 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group row mb-3  col-12 col-md-6">
+        <div class="row  d-flex justify-content-center">
+            <div class="form-group row mb-3  col-12 col-md-6 d-flex justify-content-center">
                 @Html.LabelFor(model => model.TIME, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-12  col-md-7">
                     @Html.EditorFor(model => model.TIME, new { htmlAttributes = new { @class = "form-control" } })
@@ -63,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="form-group row mb-3  col-12 col-md-6">
+            <div class="form-group row mb-3  col-12 col-md-6 d-flex justify-content-center">
                 @Html.LabelFor(model => model.QUALITY, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-12  col-md-7">
                     <select class="form-select" id="QUALITY" name="QUALITY">
@@ -75,8 +79,8 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group row mb-3 col-12 col-md-6">
+        <div class="row  d-flex justify-content-center">
+            <div class="form-group row mb-3 col-12 col-md-6 d-flex justify-content-center">
                 @Html.LabelFor(model => model.RESOLUTION, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-12  col-md-7">
                     @Html.EditorFor(model => model.RESOLUTION, new { htmlAttributes = new { @class = "form-control" } })
@@ -84,7 +88,7 @@
                 </div>
             </div>
 
-            <div class="form-group row mb-3 col-12 col-md-6">
+            <div class="form-group row mb-3 col-12 col-md-6 d-flex justify-content-center">
                 @Html.LabelFor(model => model.LANGUAGE, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-12  col-md-7">
                     @Html.EditorFor(model => model.LANGUAGE, new { htmlAttributes = new { @class = "form-control" } })
@@ -93,8 +97,8 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group row mb-3 col-12 col-md-6">
+        <div class="row  d-flex justify-content-center">
+            <div class="form-group row mb-3 col-12 col-md-6 d-flex justify-content-center">
                 @Html.LabelFor(model => model.CATEGORY, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-12  col-md-7">
                     @Html.EditorFor(model => model.CATEGORY, new { htmlAttributes = new { @class = "form-control" } })
@@ -102,7 +106,7 @@
                 </div>
             </div>
 
-            <div class="form-group row mb-3 col-12 col-md-6">
+            <div class="form-group row mb-3 col-12 col-md-6 d-flex justify-content-center">
                 @Html.LabelFor(model => model.MANUFACTURING_COMPANY, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-12  col-md-7">
                     @Html.EditorFor(model => model.MANUFACTURING_COMPANY, new { htmlAttributes = new { @class = "form-control" } })
@@ -111,8 +115,8 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group row mb-3 col-12 col-md-6">
+        <div class="row  d-flex justify-content-center">
+            <div class="form-group row mb-3 col-12 col-md-6 d-flex justify-content-center">
                 @Html.LabelFor(model => model.IMAGEID, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-12  col-md-7">
                     <input type="file" class="form-control" id="IMAGEID" name="IMAGEID" required>
@@ -120,7 +124,7 @@
                 </div>
             </div>
 
-            <div class="form-group row mb-3 col-12 col-md-6 ">
+            <div class="form-group row mb-3 col-12 col-md-6 d-flex justify-content-center">
                 @Html.LabelFor(model => model.VIDEOID, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-12  col-md-7">
                     <input type="file" class="form-control" id="VIDEOID" name="VIDEOID" required>
@@ -130,7 +134,7 @@
         </div>
 
         <div class="form-group mb-3">
-            <div class="mb-3">
+            <div class="mb-3 text-center">
                 @Html.LabelFor(model => model.CONTENT_FILM, htmlAttributes: new { @class = "control-label col-md-3" })
             </div>
             <div class="d-flex justify-content-center">
@@ -149,6 +153,3 @@
     }
 </div>
 
-<div>
-    @Html.ActionLink("Back to List", "QLFILM")
-</div>

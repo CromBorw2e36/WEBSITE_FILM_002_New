@@ -10,8 +10,8 @@
                 $.each(listVideos, (I, e) => {
                     let item = `<tr>
                     <td>${e["videoname"]}</td>
-                    <td>${e["datecreate"]}</td>
-                    <td>${e["username"]}</td>
+                    <td  class="text-center">${e["datecreate"]}</td>
+                    <td  class="text-center">${e["username"]}</td>
                     <td><a href="./DeleteVideo/${e["videoid"]}" class="nav-link text-danger"><i class="fas fa-trash"></i></a></td>
                 </tr>`
                     DOM_ += item;

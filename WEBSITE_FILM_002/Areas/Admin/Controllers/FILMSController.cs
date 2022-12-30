@@ -110,6 +110,10 @@ namespace WEBSITE_FILM_002.Areas.Admin.Controllers
                 var Film = _context.FILMS.Where(x => x.FILMID == id).FirstOrDefault();
                 if (Film != null)
                 {
+                    var _user = _context.USERS.Where(x=>x.USERID== id).FirstOrDefault();
+
+                    ViewBag.UserName = _user.FIRSTNAME + " " + _user.LASTNAME;
+
                     return View(Film);
                 }
             }
@@ -187,7 +191,8 @@ namespace WEBSITE_FILM_002.Areas.Admin.Controllers
                 Film.CONTENT_FILM = request.CONTENT_FILM;
                 _context.Entry(Film).State = EntityState.Modified;
                 _context.SaveChanges();
-                return View();
+
+                return RedirectToAction("/EditFilm/" + Film.FILMID, "FILMS");
             }
             return RedirectToAction("QLFILM");
         }

@@ -5,12 +5,17 @@
     Layout = "~/Areas/Admin/Views/Shared/_layout_Admin.cshtml";
 }
 
-<div class="mb-5">
-    <h2 style="display:inline">Tạo tài khoản</h2>
-    <a href="@Url.Action("Accounts","Accounts")" class="buttonCreate  m-3">Trở về</a>
+
+
+
+
+<div>
+    <a href="../Accounts"><button class="button_save savebutton">Trở về</button></a>
+    <h3 style="display:inline; margin-left: 5px;">Tạo tài khoản</h3>
+
 </div>
 
-<div class="d-flex justify-content-center align-content-center">
+<div class="d-flex justify-content-center align-content-center form_input_admin">
     @using (Html.BeginForm("CreateAccount", "Accounts", method: FormMethod.Post))
     {
         @Html.AntiForgeryToken()
