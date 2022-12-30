@@ -183,6 +183,20 @@ namespace WEBSITE_FILM_002.Controllers
         }
 
 
+        public ActionResult Logout()
+        {
+            Session.Remove("isLogin");
+            Session.Remove("AccountID");
+            Session.Remove("AccountName");
+            Session.Remove("Permisson");
+            Session.Remove("UserID");
+            Session.Remove("FirstName");
+            Session.Remove("LastName");
+            Session.Remove("UserAvatar");
+
+            return RedirectToAction("Index", "Pages");
+        }
+
 
         //test
         public JsonResult GET_FILM()
