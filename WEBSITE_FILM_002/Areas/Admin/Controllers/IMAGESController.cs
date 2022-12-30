@@ -31,10 +31,10 @@ namespace WEBSITE_FILM_002.Areas.Admin.Controllers
                               IMAGEID = image.IMAGEID,
                               IMAGENAME = image.IMAGENAME,
                               DATECREATE = image.DATECREATE,
-                              USERNAME = (user.LASTNAME + " " + user.FIRSTNAME).ToString(),
-                          }).ToList();
+                              USERNAME = (user.FIRSTNAME + " " + user.LASTNAME).ToString(),
+                          }).OrderByDescending(x=>x.IMAGEID).ToList();
             var json = JsonConvert.SerializeObject(Images);
-            return Json(json, JsonRequestBehavior.DenyGet);
+            return Json(json, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

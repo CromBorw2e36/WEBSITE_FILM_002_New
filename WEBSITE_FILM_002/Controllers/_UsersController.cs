@@ -64,6 +64,8 @@ namespace WEBSITE_FILM_002.Controllers
 
                     _user.IMAGENAME = _Filname_Image;
 
+                    Session["UserAvatar"] = _Filname_Image;
+
                     image.SaveAs(_path_Image);
                     _context.Entry(_user).State = EntityState.Modified;
                     _context.SaveChanges();

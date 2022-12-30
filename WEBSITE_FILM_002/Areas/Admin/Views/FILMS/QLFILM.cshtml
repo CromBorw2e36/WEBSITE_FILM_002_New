@@ -6,10 +6,10 @@
 }
 
 
-<p>
-    @Html.ActionLink("Phim mới", "CreateFilm","" , new {@class = "buttonCreate mb-3"})
+<p class="mb-5">
+    @Html.ActionLink("Phim mới", "CreateFilm","" , new {@class = "buttonCreate mb-5"})
 </p>
-<table class="table">
+<table class="table form_input_admin">
     <tr class="text-center">
         <th>
             @Html.DisplayNameFor(model => model.FILMNAME)
@@ -26,24 +26,10 @@
         <th>
             @Html.DisplayNameFor(model => model.TIME)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.QUALITY)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RESOLUTION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LANGUAGE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CATEGORY)
-        </th>*@
+       
         <th>
             @Html.DisplayNameFor(model => model.VIEWS)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.MANUFACTURING_COMPANY)
-        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.MOVIEREVIEW)
         </th>
@@ -53,15 +39,6 @@
         <th>
             @Html.DisplayNameFor(model => model.FILM_STATUS)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.IMAGEID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VIDEOID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.USERID)
-        </th>*@
         <th></th>
     </tr>
 
@@ -119,11 +96,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.USERID)
         </td>*@
-        <td>
+        <td style="width: 4rem;">
             @*@Html.ActionLink("Edit", "EditFilm", new { id=item.FILMID }) |
             @Html.ActionLink("Delete", "DeleteFilm", new { id=item.FILMID })*@
             <a href="./EditFilm/@item.FILMID" class="text-primary" style="display:inline"><i class="fas fa-edit"></i></a>
-            <a href="./Delete/@item.FILMID" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+            <a href="./Delete/@item.FILMID" class="text-danger" ><i class="fas fa-trash-alt"></i></a>
         </td>
     </tr>
 }

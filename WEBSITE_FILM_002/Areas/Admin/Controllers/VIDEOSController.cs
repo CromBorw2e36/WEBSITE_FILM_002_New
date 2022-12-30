@@ -28,7 +28,7 @@ namespace WEBSITE_FILM_002.Areas.Admin.Controllers
                               videoname = video.VIDEONAME,
                               datecreate = video.DATECREATE,
                               username = (user.LASTNAME + user.FIRSTNAME).ToString()
-                          }).ToList();
+                          }).OrderByDescending(x=>x.videoid).ToList();
             var json = JsonConvert.SerializeObject(Videos);
             return Json(json, JsonRequestBehavior.DenyGet);
         }
