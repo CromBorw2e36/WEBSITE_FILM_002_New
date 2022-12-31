@@ -10,15 +10,18 @@
     try
     {
         // chưa đăng nhập thì về trang đang nhập
-        if ((bool)Session["isLogin"])
+        if (Session["isLogin"] != null)
         {
-            if ((int)Session["Permisson"] == 0)
+            if ((bool)Session["isLogin"])
             {
-                Response.Redirect("/Pages/Index");
-            }
-            else
-            {
-                Response.Redirect("/Admin/MainDashboard");
+                if ((int)Session["Permisson"] == 0)
+                {
+                    Response.Redirect("/Pages/Index");
+                }
+                else
+                {
+                    Response.Redirect("/Admin/MainDashboard");
+                }
             }
         }
     }
