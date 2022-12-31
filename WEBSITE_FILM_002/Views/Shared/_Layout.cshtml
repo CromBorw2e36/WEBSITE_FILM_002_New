@@ -43,17 +43,17 @@
 <body>
     <div class="site-menu">
         <div class="col-12 text-end user-control" style="">
-            
+
             @{
                 if ((bool)checkIsLogin())
                 {
-                        <div style="margin-right: 2rem; font-size: .8rem; font-weight: 500;">
-                            <a href="/_Users/UserPage">
-                                <span>Xin chào, @Session["FirstName"] @Session["LastName"]</span>
-                                <img src="~/Images/Users/@Session["UserAvatar"]" alt="Alternate Text" style="height: 2rem; width: 2rem; border-radius: 100%; margin: 4px;" />
-                            </a>
-                            , <a href="/Pages/Logout">Đăng xuất</a>
-                        </div> 
+                    <div style="margin-right: 2rem; font-size: .8rem; font-weight: 500;">
+                        <a href="/_Users/UserPage">
+                            <span>Xin chào, @Session["FirstName"] @Session["LastName"]</span>
+                            <img src="~/Images/Users/@Session["UserAvatar"]" alt="Alternate Text" style="height: 2rem; width: 2rem; border-radius: 100%; margin: 4px;" />
+                        </a>
+                        , <a href="/Pages/Logout">Đăng xuất</a>
+                    </div>
                 }
                 else
                 {
@@ -267,6 +267,11 @@
         </footer>
         <!-- Footer -->
     </div>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0" nonce="iqTlZl2Y"></script>
+
+
     <!-- End of .container -->
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Scripts/bootstrap.js")

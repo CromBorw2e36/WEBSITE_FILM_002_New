@@ -104,25 +104,28 @@ namespace WEBSITE_FILM_002.Controllers
             return Json(JsonConvert.SerializeObject(TopVideo), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
+        [HttpPost]
         public JsonResult NewView(int id)
         {
-            var _Film = _context.FILMS.Where(x => x.FILMID == id).SingleOrDefault();
+
+            var _Film = _context.FILMS.Where(x => x.FILMID == (decimal)id).SingleOrDefault();
+
             if (_Film != null)
             {
                 _Film.VIEWS = _Film.VIEWS + 1;
                 _context.Entry(_Film).State = EntityState.Modified;
                 _context.SaveChanges();
             }
-            return Json(JsonRequestBehavior.DenyGet);
+            return Json(new {data = "success"},JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
-        public JsonResult Rating(int id, int rating)
+        [HttpPost]
+        public JsonResult Rating(decimal id, int rating)
         {
+
             if (rating >= 1 && rating <= 5)
             {
-                var _Film = _context.FILMS.Where(x => x.FILMID == id).SingleOrDefault();
+                var _Film = _context.FILMS.Where(x => x.FILMID == (decimal)id).SingleOrDefault();
                 if (_Film != null)
                 {
                     _Film.MOVIEREVIEW = _Film.MOVIEREVIEW == 0 ? rating : (_Film.MOVIEREVIEW + rating) / 2;
@@ -130,7 +133,7 @@ namespace WEBSITE_FILM_002.Controllers
                     _context.SaveChanges();
                 }
             }
-            return Json(JsonRequestBehavior.DenyGet);
+            return Json(new { data = "success" }, JsonRequestBehavior.AllowGet);
         }
 
         //[HttpGet]
@@ -159,18 +162,21 @@ namespace WEBSITE_FILM_002.Controllers
                             }).OrderByDescending(x=>x.filmid).Take(12);
             return Json(JsonConvert.SerializeObject(TopVideo), JsonRequestBehavior.AllowGet);
         }
+
+        //chưa sử dụng
         public ActionResult GetFilm()
         {
             var _Flim = _context.FILMS.ToList();
             ViewBag.message = _Flim.Count();
             return View(_Flim);
         }
+
+        //chưa sử dụng
         public ActionResult DetailFilm(decimal id)
         {
             var res = _context.FILMS.Where(x => x.FILMID == id).FirstOrDefault();
 
             return View(res);
         }
-
     }
 }

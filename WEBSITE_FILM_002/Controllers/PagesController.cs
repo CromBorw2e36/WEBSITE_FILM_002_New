@@ -19,7 +19,7 @@ namespace WEBSITE_FILM_002.Controllers
         [HttpGet]
         public ActionResult Detail_Film(int id)
         {
-            var _film = _context.FILMS.Where(x=>x.FILMID== id).FirstOrDefault();
+            var _film = _context.FILMS.Where(x=>x.FILMID == id).FirstOrDefault();
 
             //Lấy danh sách bình luận của phim
 
