@@ -110,9 +110,10 @@ namespace WEBSITE_FILM_002.Areas.Admin.Controllers
                 var Film = _context.FILMS.Where(x => x.FILMID == id).FirstOrDefault();
                 if (Film != null)
                 {
-                    var _user = _context.USERS.Where(x=>x.USERID== id).FirstOrDefault();
-
-                    ViewBag.UserName = _user.FIRSTNAME + " " + _user.LASTNAME;
+                    var _user = _context.USERS.Where(x=> x.USERID == Film.USERID).FirstOrDefault();
+                    string firstname = _user.FIRSTNAME;
+                    string lastname = _user.LASTNAME;
+                    ViewBag.UserName = firstname + " " + lastname;
 
                     return View(Film);
                 }

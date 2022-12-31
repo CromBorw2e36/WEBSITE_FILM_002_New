@@ -206,7 +206,8 @@ namespace WEBSITE_FILM_002.Controllers
                     ACCOUNTS _account = new ACCOUNTS()
                     {
                         ACCOUNTNAME = username,
-                        ACCOUNTPASS = password
+                        ACCOUNTPASS = password,
+                        DATECREATE = DateTime.Now,
                     };
 
                     USERS _user = new USERS()

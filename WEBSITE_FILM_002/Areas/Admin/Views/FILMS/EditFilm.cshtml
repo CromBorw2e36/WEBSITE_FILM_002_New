@@ -221,7 +221,7 @@
             </div>
             <div class="d-flex justify-content-center">
                 @*@Html.EditorFor(model => model.CONTENT_FILM, new { htmlAttributes = new { @class = "form-control w-100" } })*@
-                <textarea class="form-control" id="CONTENT_FILM" name="CONTENT_FILM" rows="6" cols="50" style="height:10rem; max-width:70%"></textarea>
+                <textarea class="form-control" id="CONTENT_FILM" name="CONTENT_FILM" rows="6" cols="50" style="height:10rem; max-width:70%; text-align: justify;">@Model.CONTENT_FILM</textarea>
                 @Html.ValidationMessageFor(model => model.CONTENT_FILM, "", new { @class = "text-danger" })
             </div>
         </div>

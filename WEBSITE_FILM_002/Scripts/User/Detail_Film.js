@@ -42,7 +42,7 @@
         let result = window.location.href.split('/').reverse()[0]
 
         $.ajax({
-            type: 'get',
+            type: 'post',
             url: '../../_FILMS/Rating',
             data: {
                 id: result,
