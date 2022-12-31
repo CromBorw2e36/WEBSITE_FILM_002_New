@@ -1,7 +1,9 @@
 ﻿using Microsoft.Ajax.Utilities;
 using Newtonsoft.Json;
+using PagedList;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security;
 using System.Security.Cryptography.X509Certificates;
@@ -168,18 +170,67 @@ namespace WEBSITE_FILM_002.Controllers
 
         public ActionResult Register()
         {
-            if ((bool)Session["isLogin"])
+            if (Session["isLogin"] != null)
             {
-                return RedirectToAction("UserPage", "_Users");
+                if ((bool)Session["isLogin"])
+                {
+                    return RedirectToAction("UserPage", "_Users");
+                }
             }
 
             return View();
         }
 
         [HttpPost]
-        public ActionResult Register(FormCollection formCollection)
+        public ActionResult Register(FormCollection formCollection, HttpPostedFileBase image)
         {
-            return View();
+
+            try
+            {
+                string _Filname_Image = Path.GetFileName(image.FileName);
+                string _path_Image = Path.Combine(Server.MapPath("~/Images/Users"), _Filname_Image);
+
+
+                string firstname = formCollection["firstname"];
+                string lastname = formCollection["lastname"];
+                DateTime born = DateTime.Parse(formCollection["born"]);
+
+                string username = formCollection["username"];
+                string password = formCollection["userpass"];
+
+
+                int CountAccount = _context.ACCOUNTS.Where(x => x.ACCOUNTNAME == username).Count();
+
+                if(CountAccount == 0)
+                {
+                    ACCOUNTS _account = new ACCOUNTS()
+                    {
+                        ACCOUNTNAME = username,
+                        ACCOUNTPASS = password
+                    };
+
+                    USERS _user = new USERS()
+                    {
+                        FIRSTNAME = firstname,
+                        LASTNAME = lastname,
+                        BORN = born,
+                        IMAGENAME = _Filname_Image,
+                    };
+
+                    _context.ACCOUNTS.Add(_account);
+                    _context.USERS.Add(_user);
+
+                    image.SaveAs(_path_Image);
+                    _context.SaveChanges();
+
+                    return RedirectToAction("Login");
+                }
+                return View();
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
 
 
@@ -196,6 +247,31 @@ namespace WEBSITE_FILM_002.Controllers
 
             return RedirectToAction("Index", "Pages");
         }
+
+        //danh sách phim tỳ ý
+        public ActionResult ListFilm(string category = "", string language = "", int page = 1, int pageSize = 18)
+        {
+            if(category != "")
+            {
+                var _film = _context.FILMS.Where(x => x.CATEGORY == category).OrderByDescending(x => x.FILMID).ThenByDescending(x => x.MOVIEREVIEW).ToPagedList(page, pageSize);
+                ViewBag.category = category;
+                return View(_film);
+            }
+            else if(language != "")
+            {
+                var _film = _context.FILMS.Where(x => x.LANGUAGE == language).OrderByDescending(x => x.FILMID).ThenByDescending(x => x.MOVIEREVIEW).ToPagedList(page, pageSize);
+                ViewBag.language = language;
+                return View(_film);
+            }
+            else
+            {
+                var _film = _context.FILMS.OrderByDescending(x => x.FILMID).ToPagedList(page, pageSize);
+                ViewBag.listfilm = "Danh sách phim";
+                return View(_film);
+            }
+            //return RedirectToAction("Index", "Pages");
+        }
+
 
         //test
         public JsonResult GET_FILM()
