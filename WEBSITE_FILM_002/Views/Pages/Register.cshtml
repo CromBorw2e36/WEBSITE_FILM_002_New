@@ -25,7 +25,7 @@
         <div class="container">
             <div class="screen-2">
                 <div class="screen__content">
-                    @using (Html.BeginForm("Login", "Pages", method: FormMethod.Post, new { @class = "register" }))
+                    @using (Html.BeginForm("Register", "Pages", method: FormMethod.Post, new { @class = "register", enctype = "multipart/form-data" } ))
                     {
                         <div class="row">
                             <div class="login__field-2 col-6">

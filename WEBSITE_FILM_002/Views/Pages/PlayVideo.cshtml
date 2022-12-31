@@ -55,33 +55,37 @@
     <div class="comment mb-3 col-12 ps-4 pe-4 pb-5 pt-1">
         <h4 class="h4-title text-dark">Bình luận</h4>
         <div class="d-flex justify-content-center row">
-            <div class="col-md-12">
-                <div class="d-flex flex-column comment-section">
-                    @{
-                        foreach (var item in (IEnumerable<WEBSITE_FILM_002.Models._ListComments>)ViewBag.Comment)
-                        {
-                            <div class="bg-white p-2 mb-3" style="border-radius: 10px; font-weight: 600;">
-                                <div class="d-flex flex-row user-info">
-                                    <img class="rounded-circle" src="~/Images/Users/@(item.avatar)" width="40">
-                                    <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">@item.userFirstName @item.userLastName</span><span class="date text-black-50">@(item.date.ToString("dd/MM/yyyy"))</span></div>
-                                </div>
-                                <div class="mt-2">
-                                    <p class="comment-text">
-                                        @item.comment_content
-                                    </p>
-                                </div>
-                            </div>
-                        }
-                    }
-                    <div id="updatecomment"></div>
-                    <div class="bg-light p-2" style="border-radius: 10px; font-weight: 600;">
-                        <div class="d-flex flex-row align-items-start">
-                            <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
-                            <textarea class="form-control ml-1 shadow-none textarea" style="max-width: 100%"></textarea>
-                            <a href="#" class="btn btn-primary m-2" id="sent_comment">Gửi</a>
+            <div class="col-md-12 d-flex justify-content-center row">
+                @*<div class="d-flex flex-column comment-section">
+            @{
+                foreach (var item in (IEnumerable<WEBSITE_FILM_002.Models._ListComments>)ViewBag.Comment)
+                {
+                    <div class="bg-white p-2 mb-3" style="border-radius: 10px; font-weight: 600;">
+                        <div class="d-flex flex-row user-info">
+                            <img class="rounded-circle" src="~/Images/Users/@(item.avatar)" width="40">
+                            <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">@item.userFirstName @item.userLastName</span><span class="date text-black-50">@(item.date.ToString("dd/MM/yyyy"))</span></div>
+                        </div>
+                        <div class="mt-2">
+                            <p class="comment-text">
+                                @item.comment_content
+                            </p>
                         </div>
                     </div>
+                }
+            }
+            <div id="updatecomment"></div>
+            <div class="bg-light p-2" style="border-radius: 10px; font-weight: 600;">
+                <div class="d-flex flex-row align-items-start">
+                    <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                    <textarea class="form-control ml-1 shadow-none textarea" style="max-width: 100%"></textarea>
+                    <a href="#" class="btn btn-primary m-2" id="sent_comment">Gửi</a>
                 </div>
+            </div>
+        </div>*@
+
+                @* Bình luận FB start *@
+                <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="1218"  data-numposts="2"></div>
+                @* Bình luận FB End *@
             </div>
         </div>
     </div>

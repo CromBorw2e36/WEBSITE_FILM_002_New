@@ -18,6 +18,13 @@
             {
                 Response.Redirect("/Admin/Admin/Login/");
             }
+            else
+            {
+                if ((int)Session["Permisson"] == 0)
+                {
+                    Response.Redirect("/Pages/Index");
+                }
+            }
         }
         catch (Exception)
         {

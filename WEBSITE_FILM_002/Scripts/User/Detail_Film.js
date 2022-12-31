@@ -1,5 +1,6 @@
 ﻿$(document).ready(function() {
     let Film_Hot_Items = $("#film_hot_items");
+
     $.ajax({
         type: "POST",
         url: "../../_FILMS/Get_Film_Take_10",
@@ -33,5 +34,49 @@
         }
     })
 
+    // rating 
+    $("#sentReview").on('click', (e) => {
+        e.preventDefault();
+
+        let mark = ($('input[name=star]:checked').val() ? $('input[name=star]:checked').val() : 0)
+        let result = window.location.href.split('/').reverse()[0]
+
+        $.ajax({
+            type: 'get',
+            url: '../../_FILMS/Rating',
+            data: {
+                id: result,
+                rating: mark
+            },
+            success: function(data) {
+                alert("Cảm ơn bạn đã đóng góp\nChúc một ngày vui vẻ")
+                console.log("Tang rating");
+            }
+        })
+    })
+
+    let url = window.location.href.split('/').reverse()[1]
+    let id = window.location.href.split('/').reverse()[0]
+
+    let DetailString = "Detail_Film";
+
+    let PlayVdeowString = "PlayVideo";
+
+    if (url == DetailString) {
+        $.ajax({
+            type: 'POST',
+            url: "../../_FILMS/NewView",
+            data: {
+                id: id,
+            },
+            success: function(data) {
+                console.log("Tang View");
+            }
+        })
+    }
+
+
+    // console.log("Detail", url == DetailString)
+    // console.log("PlayVideo", url == PlayVdeowString)
 
 })
