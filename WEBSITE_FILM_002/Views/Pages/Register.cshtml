@@ -11,21 +11,24 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <!-- add icon link -->
+    <link rel="icon" href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
+          type="image/x-icon">
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
     <link href="~/Content/Login.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
 
 <body>
     <main>
         <div class="container">
-            <div class="screen-2">
+            <div class="screen-2" data-aos="zoom-in" data-aos-easing="linear" data-aos-anchor-placement="center-bottom" data-aos-duration="500">
                 <div class="screen__content">
-                    @using (Html.BeginForm("Register", "Pages", method: FormMethod.Post, new { @class = "register", enctype = "multipart/form-data" } ))
+                    @using (Html.BeginForm("Register", "Pages", method: FormMethod.Post, new { @class = "register", enctype = "multipart/form-data" }))
                     {
                         <div class="row">
                             <div class="login__field-2 col-6">
@@ -59,18 +62,18 @@
                         </div>
                         <button class="button login__submit text-center" type="submit" style="width: 10rem;">
                             <span class="button__text w-100">ĐĂNG KÝ</span>
-                            <i class="button__icon fas fa-chevron-right"></i>   
+                            <i class="button__icon fas fa-chevron-right"></i>
                         </button>
                     }
-                <div class="social-login">
-                    <h3><a href="./index" class="nav-link">Trang chủ</a></h3>
-                    <div class="social-icons">
-                        <a href="./Login" class="nav-link">Trở về đăng nhập</a>
-                        @*<a href="#" class="social-login__icon fab fa-instagram"></a>
-            <a href="#" class="social-login__icon fab fa-facebook"></a>
-            <a href="#" class="social-login__icon fab fa-twitter"></a>*@
+                    <div class="social-login">
+                        <h3><a href="./index" class="nav-link">Trang chủ</a></h3>
+                        <div class="social-icons">
+                            <a href="./Login" class="nav-link">Trở về đăng nhập</a>
+                            @*<a href="#" class="social-login__icon fab fa-instagram"></a>
+                                <a href="#" class="social-login__icon fab fa-facebook"></a>
+                                <a href="#" class="social-login__icon fab fa-twitter"></a>*@
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="screen__background">
                     <span class="screen__background__shape screen__background__shape4"></span>
@@ -90,7 +93,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
             integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
     </script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
 </body>
 

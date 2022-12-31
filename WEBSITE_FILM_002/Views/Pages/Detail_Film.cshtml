@@ -1,13 +1,13 @@
 ﻿@model WEBSITE_FILM_002.Models.FILMS
 @{
-    ViewBag.Title = "Detail_Film";
+    ViewBag.Title = Model.FILMNAME;
     Layout = "~/Views/Shared/_Layout.cshtml";
     DateTime productionyear = (DateTime)(Model.PRODUCTIONYEAR);
     string year = productionyear.ToString("MM/yyyy");
 }
 
 
-<main class="container">
+<main class="container"  data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500">
     <div class="row d-flex justify-content-center">
 
 
@@ -76,7 +76,7 @@
                 </div>
 
                 <!-- nội dung phim -->
-                <div class="content-body col-12">
+                <div class="content-body col-12 pt-5">
                     <h5>Nội dung phim</h5>
                     <p>
                         @Model.CONTENT_FILM

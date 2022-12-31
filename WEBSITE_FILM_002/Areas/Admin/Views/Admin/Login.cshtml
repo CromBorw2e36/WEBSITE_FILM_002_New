@@ -10,11 +10,7 @@
     try
     {
         // chưa đăng nhập thì về trang đang nhập
-        if (!(bool)Session["isLogin"])
-        {
-            Response.Redirect("/Admin/Admin/Login/");
-        }
-        else
+        if ((bool)Session["isLogin"])
         {
             if ((int)Session["Permisson"] == 0)
             {
@@ -41,6 +37,9 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <!-- add icon link -->
+    <link rel="icon" href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
+          type="image/x-icon">
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/_Login_AdminPage.css")
     @Scripts.Render("~/bundles/modernizr")
