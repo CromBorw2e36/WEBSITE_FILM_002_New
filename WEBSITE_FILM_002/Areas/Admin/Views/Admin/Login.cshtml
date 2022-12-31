@@ -4,6 +4,37 @@
     Layout = null;
 }
 
+
+@{
+    //kiểm tra đăng nhập ở admin
+    try
+    {
+        // chưa đăng nhập thì về trang đang nhập
+        if (!(bool)Session["isLogin"])
+        {
+            Response.Redirect("/Admin/Admin/Login/");
+        }
+        else
+        {
+            if ((int)Session["Permisson"] == 0)
+            {
+                Response.Redirect("/Pages/Index");
+            }
+            else
+            {
+                Response.Redirect("/Admin/MainDashboard");
+            }
+        }
+    }
+    catch (Exception)
+    {
+        Session["isLogin"] = false;
+        Response.Redirect("/Admin/Admin/Login/");
+    }
+    Session.Timeout = 60;
+}
+
+
 <!DOCTYPE html>
 
 <html>
